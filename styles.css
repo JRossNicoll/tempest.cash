@@ -147,6 +147,10 @@ body {
     gap: 0.75rem;
 }
 
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
 .form-group label {
     display: block;
     font-size: 0.75rem;
@@ -221,6 +225,7 @@ body {
     font-size: 0.875rem;
     cursor: pointer;
     transition: background-color 0.2s;
+    margin-top: 0.5rem;
 }
 
 .review-btn:hover {
@@ -279,11 +284,6 @@ body {
     gap: 0.5rem;
 }
 
-.external-link {
-    color: var(--purple-400);
-    flex-shrink: 0;
-}
-
 .activity-info {
     flex: 1;
     min-width: 0;
@@ -303,6 +303,11 @@ body {
     font-size: 0.75rem;
     color: var(--purple-300);
     white-space: nowrap;
+}
+
+.external-link {
+    color: var(--purple-400);
+    flex-shrink: 0;
 }
 
 /* Modal Styles */
