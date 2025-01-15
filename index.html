@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempest.cash</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <!-- Logo and Title -->
+                <div class="logo-container">
+                    <svg class="logo" viewBox="0 0 40 40">
+                        <defs>
+                            <linearGradient id="tornadoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#9333EA" />
+                                <stop offset="50%" stop-color="#A855F7" />
+                                <stop offset="100%" stop-color="#C084FC" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M20 5 C30 5, 35 10, 30 15 C25 20, 15 20, 20 25 C25 30, 30 30, 25 35"
+                            fill="none"
+                            stroke="url(#tornadoGrad)"
+                            stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                    <span class="title">Tempest Cash</span>
+                </div>
+                
+                <!-- Navigation -->
+                <nav>
+                    <button class="button" data-action="voting">Voting</button>
+                    <button class="button" data-action="compliance">Compliance</button>
+                    <button class="button" data-action="docs">Docs</button>
+                </nav>
+
+                <!-- Right Controls -->
+                <div class="controls">
+                    <button class="button" data-action="connect">Connect</button>
+                    <button class="button" data-action="solana">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M16.5 8.15c-.28-.15-.5-.15-.95-.15H4.75c-.3 0-.45.3-.25.5l2.35 2.35c.2.2.45.3.7.3h9.45c.3 0 .45-.3.25-.5l-.75-.75a.827.827 0 010-1.075l.75-.7z"/>
+                            <path d="M16.5 15.15c-.28-.15-.5-.15-.95-.15H4.75c-.3 0-.45.3-.25.5l2.35 2.35c.2.2.45.3.7.3h9.45c.3 0 .45-.3.25-.5l-.75-.75a.827.827 0 010-1.075l.75-.7z"/>
+                            <path d="M16.5 1.15c-.28-.15-.5-.15-.95-.15H4.75c-.3 0-.45.3-.25.5l2.35 2.35c.2.2.45.3.7.3h9.45c.3 0 .45-.3.25-.5l-.75-.75a.827.827 0 010-1.075l.75-.7z"/>
+                        </svg>
+                    </button>
+                    <button class="button" data-action="settings">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Warning Banner -->
+        <div class="warning-banner">
+            <div class="warning-content">
+                <span class="warning-icon">!</span>
+                <p>Tempest.cash was audited. However, it is still an experimental software. Please use at your own risk.</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main>
+            <div class="container">
+                <!-- Transaction Panel -->
+                <div class="grid">
+                    <!-- Send/Receive Panel -->
+                    <div class="card">
+                        <div class="tabs">
+                            <button class="tab active" data-tab="send">Send</button>
+                            <button class="tab" data-tab="receive">Receive</button>
+                        </div>
+                        
+                        <div class="form">
+                            <div class="form-group">
+                                <label>Asset</label>
+                                <button class="asset-selector">
+                                    <div class="asset-icon"></div>
+                                    <span>SOL</span>
+                                </button>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label id="amountLabel">Amount</label>
+                                <div class="input-group">
+                                    <input type="text" placeholder="0.0" id="amountInput">
+                                    <button class="max-button">MAX</button>
+                                </div>
+                            </div>
+
+                            <button class="button review-button">Review</button>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Panel -->
+                    <div class="card">
+                        <h2>Statistics</h2>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <label>Total Volume</label>
+                                <span>1.2M SOL</span>
+                            </div>
+                            <div class="stat-item">
+                                <label>Active Pools</label>
+                                <span>4</span>
+                            </div>
+                            <div class="stat-item">
+                                <label>Unique Users</label>
+                                <span>2.4k</span>
+                            </div>
+                            <div class="stat-item">
+                                <label>24h Transactions</label>
+                                <span>156</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card activity-card">
+                    <h2>Recent Activity</h2>
+                    <div id="recentActivity" class="activity-list"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <!-- Version Info -->
+                    <div class="version-info">
+                        <div>Token address: <span>• • • • • • • •</span></div>
+                        <div>Tempest.cash <span>version: a83fae0</span></div>
+                    </div>
+
+                    <!-- Footer Links -->
+                    <div class="footer-links">
+                        <button data-action="privacy">Privacy Policy</button>
+                        <button data-action="terms">Terms</button>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" title="Telegram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21.2 5L2.5 12.8c-1.1.4-1.1 1.1-.2 1.4l4.6 1.4 10.8-6.8c.5-.3 1-.1.6.2l-8.7 7.9-.3 4.7c.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22 6.3c.3-1.3-.5-1.8-1.4-1.3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" title="Pump.Fun">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                                <path d="M12 3v12"/>
+                                <path d="M12 15v6"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" title="Solscan">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <path d="M15 3h6v6"/>
+                                <path d="M10 14L21 3"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="settingsModal" class="modal-backdrop" style="display: none;">
+        <div class="modal">
+            <div class="modal-content">
+                <h3>Note Account Settings</h3>
+                <p>A Note Account allows to store encrypted on-chain backups of private notes. This makes safe storage of funds hassle- and stress-free with the security of the Solana blockchain backing each note.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
