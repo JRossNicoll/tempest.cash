@@ -103,7 +103,7 @@ body {
 
 .left-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
@@ -159,7 +159,6 @@ body {
     background-color: rgba(88, 28, 135, 0.3);
     padding: 0.5rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border: 1px solid rgba(147, 51, 234, 0.1);
     color: var(--purple-300);
@@ -172,6 +171,10 @@ body {
     background-color: var(--purple-500);
     border-radius: 50%;
     margin-right: 0.5rem;
+}
+
+.chevron-down {
+    margin-left: auto;
 }
 
 .amount-input {
@@ -190,6 +193,7 @@ body {
     font-size: 0.875rem;
     width: 100%;
     outline: none;
+    font-family: inherit;
 }
 
 .amount-input input::placeholder {
@@ -241,8 +245,8 @@ body {
 .stat label {
     font-size: 0.75rem;
     color: rgba(216, 180, 254, 0.6);
-    margin-bottom: 0.25rem;
     display: block;
+    margin-bottom: 0.25rem;
 }
 
 .stat .value {
@@ -275,8 +279,14 @@ body {
     gap: 0.5rem;
 }
 
+.external-link {
+    color: var(--purple-400);
+    flex-shrink: 0;
+}
+
 .activity-info {
     flex: 1;
+    min-width: 0;
 }
 
 .activity-type {
@@ -292,6 +302,151 @@ body {
 .activity-amount {
     font-size: 0.75rem;
     color: var(--purple-300);
+    white-space: nowrap;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 50;
+}
+
+.modal-content {
+    background-color: rgb(17, 24, 39);
+    border: 1px solid rgba(147, 51, 234, 0.2);
+    border-radius: 0.5rem;
+    max-width: 32rem;
+    width: 100%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+.modal-header h3 {
+    font-size: 1.125rem;
+    color: var(--purple-300);
+}
+
+.close-btn {
+    color: var(--purple-400);
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--purple-300);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.address-section,
+.verifier-section {
+    margin-bottom: 1.5rem;
+}
+
+.address-section label,
+.verifier-section label {
+    font-size: 0.875rem;
+    color: var(--purple-400);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.code-block {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+.code-block code {
+    color: var(--purple-300);
+    font-size: 0.875rem;
+    font-family: inherit;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.copy-btn {
+    color: var(--purple-400);
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.copy-btn:hover {
+    color: var(--purple-300);
+}
+
+.close-modal-btn {
+    width: 100%;
+    background-color: var(--purple-600);
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.close-modal-btn:hover {
+    background-color: var(--purple-500);
+}
+
+/* Success Modal */
+#successModal .modal-content {
+    text-align: center;
+    padding: 1.5rem;
+    max-width: 28rem;
+}
+
+.success-icon {
+    width: 4rem;
+    height: 4rem;
+    background-color: rgba(147, 51, 234, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: var(--purple-400);
+    font-size: 1.5rem;
+}
+
+#successModal h3 {
+    font-size: 1.25rem;
+    color: var(--purple-300);
+    margin-bottom: 1rem;
+}
+
+#successModal p {
+    color: rgba(216, 180, 254, 0.8);
+    margin-bottom: 1.5rem;
 }
 
 /* Footer Styles */
@@ -344,142 +499,6 @@ body {
 
 .social-link:hover {
     color: var(--purple-300);
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    z-index: 50;
-}
-
-.modal-content {
-    background-color: rgb(17, 24, 39);
-    border: 1px solid rgba(147, 51, 234, 0.2);
-    border-radius: 0.5rem;
-    max-width: 32rem;
-    width: 100%;
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(147, 51, 234, 0.2);
-}
-
-.modal-header h3 {
-    font-size: 1.125rem;
-    color: var(--purple-300);
-}
-
-.close-btn {
-    color: var(--purple-400);
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.close-btn:hover {
-    color: var(--purple-300);
-}
-
-.modal-body {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.address-section label,
-.verifier-section label {
-    font-size: 0.875rem;
-    color: var(--purple-400);
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-.code-block {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 0.75rem;
-    border-radius: 0.25rem;
-    border: 1px solid rgba(147, 51, 234, 0.2);
-}
-
-.code-block code {
-    color: var(--purple-300);
-    font-size: 0.875rem;
-    font-family: monospace;
-    flex: 1;
-}
-
-.copy-btn {
-    color: var(--purple-400);
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-}
-
-.copy-btn:hover {
-    color: var(--purple-300);
-}
-
-.close-modal-btn {
-    width: 100%;
-    background-color: var(--purple-600);
-    color: white;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    font-size: 0.875rem;
-    transition: background-color 0.2s;
-}
-
-.close-modal-btn:hover {
-    background-color: var(--purple-500);
-}
-
-/* Success Modal */
-#successModal .modal-content {
-    text-align: center;
-    padding: 1.5rem;
-    max-width: 28rem;
-}
-
-.success-icon {
-    width: 4rem;
-    height: 4rem;
-    background-color: rgba(147, 51, 234, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    color: var(--purple-400);
-    font-size: 1.5rem;
-}
-
-#successModal h3 {
-    font-size: 1.25rem;
-    color: var(--purple-300);
-    margin-bottom: 1rem;
-}
-
-#successModal p {
-    color: rgba(216, 180, 254, 0.8);
-    margin-bottom: 1.5rem;
 }
 
 /* Responsive Styles */
