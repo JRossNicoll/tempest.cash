@@ -470,6 +470,10 @@ body {
     line-height: 1.2;
 }
 
+.token-info .address {
+    color: var(--purple-300);
+}
+
 .token-info span {
     color: rgba(216, 180, 254, 0.6);
 }
