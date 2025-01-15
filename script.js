@@ -67,18 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Recent Activity
+    // Recent Activity functionality
     function generateRandomAmount() {
         return (Math.random() * 49.9 + 0.1).toFixed(2);
-    }
-
-    function generateRandomAddress() {
-        const chars = '0123456789abcdef';
-        let addr = '';
-        for (let i = 0; i < 6; i++) {
-            addr += chars[Math.floor(Math.random() * chars.length)];
-        }
-        return `${addr}...${chars.slice(0, 4)}`;
     }
 
     function formatTimeAgo(date) {
@@ -98,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <polyline points="15 3 21 3 21 9"></polyline>
                     <line x1="10" y1="14" x2="21" y2="3"></line>
                 </svg>
-                <div>
+                <div class="activity-info">
                     <div class="activity-type">${type}</div>
                     <div class="activity-time">${formatTimeAgo(new Date())}</div>
                 </div>
